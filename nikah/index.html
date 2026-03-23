@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nikah RSVP — Fatima & Keval · July 5, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold:    #7A5C14;
+    --gold-md: #9E7A20;
+    --gold-lt: #C4A44A;
+    --brown:   #5E3C0E;
+    --cream:   #FDF9F3;
+    --text:    #5C3C12;
+    --text-lt: #9A7840;
+    --sage:    #6A8A68;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Cormorant Garamond", serif; min-height: 100vh; overflow-x: hidden; background: var(--cream); }
+
+  .floral-corner { position: fixed; pointer-events: none; z-index: 0; width: min(340px, 52vw); }
+  .floral-tl { top: 0; left: 0; }
+  .floral-br { bottom: 0; right: 0; transform: rotate(180deg); }
+
+  .page { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; padding: 60px 24px 96px; }
+
+  .bismillah { text-align: center; font-size: clamp(26px,6vw,36px); color: var(--gold); margin-bottom: 22px; font-style: italic; opacity: 0; animation: fadeUp .8s .1s forwards; }
+  .host-text { text-align: center; font-family: "Cinzel", serif; font-size: clamp(7.5px,1.7vw,9.5px); letter-spacing: 3px; color: var(--gold-md); text-transform: uppercase; line-height: 2; margin-bottom: 10px; opacity: 0; animation: fadeUp .8s .2s forwards; }
+  .names-wrap { text-align: center; opacity: 0; animation: fadeUp .8s .35s forwards; margin-bottom: 4px; }
+  .name-script { font-family: "Great Vibes", cursive; font-size: clamp(36px,8.5vw,54px); color: var(--gold); line-height: 1.2; display: block; }
+  .ampersand   { font-family: "Great Vibes", cursive; font-size: clamp(26px,5.5vw,34px); color: var(--gold-md); display: block; margin: -4px 0; }
+
+  .date-row { display: flex; align-items: center; justify-content: center; margin: 30px 0 10px; opacity: 0; animation: fadeUp .8s .5s forwards; }
+  .date-col { flex: 1; text-align: center; }
+  .d-label { font-family: "Cinzel", serif; font-size: clamp(13px,3vw,16px); letter-spacing: 4px; color: var(--brown); text-transform: uppercase; }
+  .d-num   { font-family: "Cinzel", serif; font-size: clamp(28px,6.5vw,40px); font-weight: 500; color: var(--brown); line-height: 1.05; }
+  .date-vline { width: 1px; height: 58px; background: var(--gold-lt); margin: 0 18px; flex-shrink: 0; }
+
+  .time-text { text-align: center; font-family: "Cinzel", serif; font-size: clamp(7.5px,1.7vw,9.5px); letter-spacing: 3.5px; text-transform: uppercase; color: var(--text-lt); margin-bottom: 20px; opacity: 0; animation: fadeUp .8s .55s forwards; }
+  .venue { text-align: center; color: var(--text-lt); font-size: clamp(13px,3vw,15px); line-height: 1.9; margin-bottom: 8px; opacity: 0; animation: fadeUp .8s .6s forwards; }
+  .venue .v-name { display: block; font-family: "Cinzel", serif; font-size: clamp(9px,2vw,11px); font-weight: 600; letter-spacing: 2.5px; color: var(--brown); text-transform: uppercase; margin-bottom: 2px; }
+  .venue .v-full { display: block; font-family: "Cinzel", serif; font-size: clamp(8px,1.6vw,9.5px); letter-spacing: 2px; text-transform: uppercase; color: var(--gold-md); margin-bottom: 4px; }
+  .reception { text-align: center; font-family: "Great Vibes", cursive; font-size: clamp(22px,5vw,28px); color: var(--gold); margin-bottom: 28px; opacity: 0; animation: fadeUp .8s .63s forwards; }
+
+  .divider { display: flex; align-items: center; gap: 10px; margin: 0 0 28px; opacity: 0; animation: fadeUp .8s .66s forwards; }
+  .div-line    { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--gold-lt), transparent); }
+  .div-diamond { width: 5px; height: 5px; background: var(--gold-lt); transform: rotate(45deg); flex-shrink: 0; }
+
+  .card { background: rgba(255,253,248,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(196,164,74,.2); border-radius: 18px; padding: clamp(26px,6vw,40px) clamp(20px,6vw,36px); box-shadow: 0 6px 32px rgba(94,60,14,.08); opacity: 0; animation: fadeUp .9s .75s forwards; }
+  .card-title { font-family: "Cinzel", serif; font-size: clamp(10px,2vw,12px); letter-spacing: 4px; color: var(--gold); text-align: center; text-transform: uppercase; margin-bottom: 4px; }
+  .card-sub   { text-align: center; font-style: italic; font-size: 14px; color: var(--text-lt); margin-bottom: 26px; }
+
+  .field { margin-bottom: 20px; }
+  .field label { display: block; font-family: "Cinzel", serif; font-size: clamp(8px,1.6vw,9.5px); letter-spacing: 2.5px; color: var(--text-lt); text-transform: uppercase; margin-bottom: 8px; }
+  input[type=text], input[type=email], select, textarea { width: 100%; border: 1px solid rgba(196,164,74,.35); border-radius: 10px; padding: 12px 15px; font-family: "Cormorant Garamond", serif; font-size: 16px; color: var(--text); background: rgba(255,252,245,.95); outline: none; transition: border-color .2s, box-shadow .2s; -webkit-appearance: none; appearance: none; }
+  input:focus, select:focus, textarea:focus { border-color: var(--gold-md); box-shadow: 0 0 0 3px rgba(158,122,32,.1); }
+  textarea { resize: vertical; min-height: 86px; }
+  select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A5C14' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px; }
+
+  .toggle-group { display: flex; gap: 10px; }
+  .toggle-btn { flex: 1; padding: 12px 8px; border: 1px solid rgba(196,164,74,.35); border-radius: 10px; background: rgba(255,252,245,.95); font-family: "Cinzel", serif; font-size: clamp(8px,1.8vw,10px); letter-spacing: 1.8px; color: var(--text-lt); cursor: pointer; transition: all .22s; text-transform: uppercase; }
+  .toggle-btn.yes { background: var(--sage); border-color: var(--sage); color: #fff; box-shadow: 0 3px 10px rgba(106,138,104,.28); }
+  .toggle-btn.no  { background: #B8784A; border-color: #B8784A; color: #fff; box-shadow: 0 3px 10px rgba(184,120,74,.22); }
+
+  .extra-fields { overflow: hidden; max-height: 0; transition: max-height .5s ease, opacity .4s ease; opacity: 0; }
+  .extra-fields.show { max-height: 500px; opacity: 1; }
+  .field-hint { font-size: 13px; color: var(--text-lt); font-style: italic; margin-top: 5px; }
+
+  .note { text-align: center; font-size: 14px; color: var(--gold-md); font-style: italic; margin-bottom: 16px; }
+  .submit-btn { width: 100%; padding: 15px; background: linear-gradient(135deg, var(--brown), var(--gold-md)); border: none; border-radius: 50px; color: #fff; font-family: "Cinzel", serif; font-size: clamp(9px,2vw,11px); letter-spacing: 3px; text-transform: uppercase; cursor: pointer; transition: opacity .2s, transform .15s; box-shadow: 0 4px 20px rgba(94,60,14,.25); }
+  .submit-btn:hover:not(:disabled) { opacity: .88; transform: translateY(-1px); }
+  .submit-btn:active:not(:disabled) { transform: translateY(0); }
+  .submit-btn:disabled { opacity: .42; cursor: not-allowed; }
+
+  .success { display: none; text-align: center; padding: 10px 0; }
+  .success.show { display: block; }
+  .success-bloom { font-size: 48px; margin-bottom: 14px; }
+  .success-title { font-family: "Great Vibes", cursive; font-size: clamp(36px,9vw,50px); color: var(--gold); margin-bottom: 10px; }
+  .success-msg   { font-size: clamp(15px,3.5vw,17px); color: var(--text-lt); font-style: italic; line-height: 1.7; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 480px) { .card { padding: 22px 15px; } .toggle-btn { font-size: 9px; letter-spacing: 1px; padding: 11px 4px; } .date-vline { height: 44px; margin: 0 10px; } }
+</style>
+</head>
+<body>
+
+<!-- TL corner: delicate line-art botanical -->
+<svg class="floral-corner floral-tl" viewBox="0 0 340 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.18" stroke="#7A5C14" fill="none">
+    <!-- Large peony — top right, built from individual curved petals -->
+    <!-- Outer ring of petals -->
+    <path d="M268,18 C260,2 238,0 238,18 C238,34 252,42 268,36 C284,30 284,14 268,18Z" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.12"/>
+    <path d="M298,28 C318,16 322,−4 306,2 C290,8 286,24 294,36 C302,46 314,40 298,28Z" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.12"/>
+    <path d="M318,58 C336,50 342,28 326,30 C310,32 302,48 308,60 C314,72 326,66 318,58Z" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.12"/>
+    <path d="M308,90 C326,94 340,76 326,68 C312,60 296,68 296,82 C296,94 308,90 308,90Z" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.12"/>
+    <path d="M278,104 C288,120 308,120 308,106 C308,92 294,84 280,90 C266,96 268,104 278,104Z" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.12"/>
+    <path d="M244,100 C240,118 256,128 264,116 C272,104 268,88 254,86 C240,84 244,100 244,100Z" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.12"/>
+    <path d="M224,78 C210,88 212,110 226,108 C240,106 250,94 244,80 C238,68 224,78 224,78Z" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.12"/>
+    <path d="M226,46 C210,40 200,58 214,66 C228,74 244,66 244,52 C244,40 226,46 226,46Z" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.12"/>
+    <!-- Inner petals -->
+    <path d="M264,32 C256,20 244,22 248,34 C252,46 264,48 270,40 C276,32 264,32 264,32Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.15"/>
+    <path d="M294,46 C302,34 296,22 286,28 C276,34 276,48 284,54 C292,58 294,46 294,46Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.15"/>
+    <path d="M296,76 C308,76 316,64 306,58 C296,52 282,58 282,70 C282,80 296,76 296,76Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.15"/>
+    <path d="M270,90 C276,102 290,100 290,88 C290,76 278,70 270,78 C262,84 270,90 270,90Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.15"/>
+    <path d="M248,84 C242,96 250,106 260,100 C270,94 270,80 260,76 C252,72 248,84 248,84Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.15"/>
+    <path d="M238,60 C228,56 222,68 232,74 C242,80 256,74 254,62 C252,52 238,60 238,60Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.15"/>
+    <!-- Centre -->
+    <circle cx="268" cy="62" r="12" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.18"/>
+    <circle cx="268" cy="62" r="6"  stroke-width="0.6" fill="#C4A44A" fill-opacity="0.22"/>
+    <!-- Stamens -->
+    <line x1="268" y1="56" x2="268" y2="50" stroke-width="0.6"/>
+    <line x1="274" y1="58" x2="278" y2="53" stroke-width="0.6"/>
+    <line x1="262" y1="58" x2="258" y2="53" stroke-width="0.6"/>
+    <line x1="272" y1="62" x2="278" y2="60" stroke-width="0.6"/>
+    <line x1="264" y1="62" x2="258" y2="60" stroke-width="0.6"/>
+
+    <!-- Smaller bloom, left -->
+    <path d="M58,10 C52,−2 36,0 38,14 C40,26 52,30 60,22 C68,14 58,10 58,10Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.1"/>
+    <path d="M78,14 C90,6 90,−8 78,−2 C66,4 64,18 72,26 C78,32 78,14 78,14Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.1"/>
+    <path d="M88,36 C102,32 106,18 94,16 C82,16 76,28 80,40 C84,50 88,36 88,36Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.1"/>
+    <path d="M80,58 C88,68 102,64 98,52 C94,40 80,36 72,44 C66,52 80,58 80,58Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.1"/>
+    <path d="M56,64 C54,76 66,80 70,70 C74,60 66,50 56,54 C48,58 56,64 56,64Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.1"/>
+    <path d="M38,50 C28,50 26,64 38,66 C50,68 58,58 52,48 C48,40 38,50 38,50Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.1"/>
+    <path d="M32,28 C20,26 16,40 28,44 C40,48 52,38 46,28 C42,20 32,28 32,28Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.1"/>
+    <circle cx="62" cy="38" r="9" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.14"/>
+    <circle cx="62" cy="38" r="4" stroke-width="0.5" fill="#C4A44A" fill-opacity="0.18"/>
+
+    <!-- Stems & branches -->
+    <path d="M268,110 Q240,150 200,180 Q160,210 120,240 Q80,268 40,290" stroke-width="1" stroke-linecap="round"/>
+    <path d="M62,64 Q70,100 80,130 Q90,158 100,190" stroke-width="0.8" stroke-linecap="round"/>
+
+    <!-- Leaves on main stem — single pointed leaf shapes -->
+    <path d="M240,138 C228,122 210,128 220,142 C230,154 248,150 240,138Z" stroke-width="0.7" fill="#7A9E7A" fill-opacity="0.15"/>
+    <path d="M216,162 C230,150 228,132 216,140 C204,148 200,166 210,170 C218,172 216,162 216,162Z" stroke-width="0.7" fill="#7A9E7A" fill-opacity="0.15"/>
+    <path d="M188,188 C176,172 158,178 168,192 C178,204 196,200 188,188Z" stroke-width="0.7" fill="#7A9E7A" fill-opacity="0.15"/>
+    <path d="M162,210 C174,198 172,180 160,188 C148,196 144,214 154,218 C162,220 162,210 162,210Z" stroke-width="0.7" fill="#7A9E7A" fill-opacity="0.15"/>
+    <path d="M130,236 C118,220 100,226 110,240 C120,252 138,248 130,236Z" stroke-width="0.7" fill="#7A9E7A" fill-opacity="0.15"/>
+    <path d="M100,204 C112,194 110,178 100,186 C90,194 88,210 96,214 C102,216 100,204 100,204Z" stroke-width="0.7" fill="#7A9E7A" fill-opacity="0.14"/>
+
+    <!-- Tiny rosebuds on branches -->
+    <path d="M148,256 C144,248 136,248 138,256 C140,262 148,264 150,258 C152,252 148,256 148,256Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.14"/>
+    <path d="M92,270 C88,262 80,262 82,270 C84,276 92,278 94,272 C96,266 92,270 92,270Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.14"/>
+    <path d="M58,172 C54,162 44,160 46,170 C48,178 58,180 60,172 C62,166 58,172 58,172Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.14"/>
+
+    <!-- Small scattered dots (pollen/berries) -->
+    <circle cx="200" cy="170" r="2" fill="#C4A44A" fill-opacity="0.3"/>
+    <circle cx="178" cy="196" r="1.5" fill="#C4A44A" fill-opacity="0.28"/>
+    <circle cx="148" cy="224" r="2" fill="#C4A44A" fill-opacity="0.26"/>
+    <circle cx="116" cy="248" r="1.5" fill="#C4A44A" fill-opacity="0.24"/>
+    <circle cx="84"  cy="272" r="1.5" fill="#C4A44A" fill-opacity="0.22"/>
+  </g>
+</svg>
+
+<svg class="floral-corner floral-br" viewBox="0 0 340 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.18" stroke="#7A5C14" fill="none">
+    <path d="M268,18 C260,2 238,0 238,18 C238,34 252,42 268,36 C284,30 284,14 268,18Z" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.12"/>
+    <path d="M298,28 C318,16 322,−4 306,2 C290,8 286,24 294,36 C302,46 314,40 298,28Z" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.12"/>
+    <path d="M318,58 C336,50 342,28 326,30 C310,32 302,48 308,60 C314,72 326,66 318,58Z" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.12"/>
+    <path d="M308,90 C326,94 340,76 326,68 C312,60 296,68 296,82 C296,94 308,90 308,90Z" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.12"/>
+    <path d="M278,104 C288,120 308,120 308,106 C308,92 294,84 280,90 C266,96 268,104 278,104Z" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.12"/>
+    <path d="M244,100 C240,118 256,128 264,116 C272,104 268,88 254,86 C240,84 244,100 244,100Z" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.12"/>
+    <path d="M224,78 C210,88 212,110 226,108 C240,106 250,94 244,80 C238,68 224,78 224,78Z" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.12"/>
+    <path d="M226,46 C210,40 200,58 214,66 C228,74 244,66 244,52 C244,40 226,46 226,46Z" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.12"/>
+    <path d="M264,32 C256,20 244,22 248,34 C252,46 264,48 270,40 C276,32 264,32 264,32Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.15"/>
+    <path d="M294,46 C302,34 296,22 286,28 C276,34 276,48 284,54 C292,58 294,46 294,46Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.15"/>
+    <path d="M296,76 C308,76 316,64 306,58 C296,52 282,58 282,70 C282,80 296,76 296,76Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.15"/>
+    <path d="M270,90 C276,102 290,100 290,88 C290,76 278,70 270,78 C262,84 270,90 270,90Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.15"/>
+    <path d="M248,84 C242,96 250,106 260,100 C270,94 270,80 260,76 C252,72 248,84 248,84Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.15"/>
+    <path d="M238,60 C228,56 222,68 232,74 C242,80 256,74 254,62 C252,52 238,60 238,60Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.15"/>
+    <circle cx="268" cy="62" r="12" stroke-width="0.8" fill="#C4A44A" fill-opacity="0.18"/>
+    <circle cx="268" cy="62" r="6"  stroke-width="0.6" fill="#C4A44A" fill-opacity="0.22"/>
+    <line x1="268" y1="56" x2="268" y2="50" stroke-width="0.6"/>
+    <line x1="274" y1="58" x2="278" y2="53" stroke-width="0.6"/>
+    <line x1="262" y1="58" x2="258" y2="53" stroke-width="0.6"/>
+    <path d="M58,10 C52,−2 36,0 38,14 C40,26 52,30 60,22 C68,14 58,10 58,10Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.1"/>
+    <path d="M78,14 C90,6 90,−8 78,−2 C66,4 64,18 72,26 C78,32 78,14 78,14Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.1"/>
+    <path d="M88,36 C102,32 106,18 94,16 C82,16 76,28 80,40 C84,50 88,36 88,36Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.1"/>
+    <path d="M80,58 C88,68 102,64 98,52 C94,40 80,36 72,44 C66,52 80,58 80,58Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.1"/>
+    <path d="M56,64 C54,76 66,80 70,70 C74,60 66,50 56,54 C48,58 56,64 56,64Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.1"/>
+    <path d="M38,50 C28,50 26,64 38,66 C50,68 58,58 52,48 C48,40 38,50 38,50Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.1"/>
+    <path d="M32,28 C20,26 16,40 28,44 C40,48 52,38 46,28 C42,20 32,28 32,28Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.1"/>
+    <circle cx="62" cy="38" r="9" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.14"/>
+    <circle cx="62" cy="38" r="4" stroke-width="0.5" fill="#C4A44A" fill-opacity="0.18"/>
+    <path d="M268,110 Q240,150 200,180 Q160,210 120,240 Q80,268 40,290" stroke-width="1" stroke-linecap="round"/>
+    <path d="M62,64 Q70,100 80,130 Q90,158 100,190" stroke-width="0.8" stroke-linecap="round"/>
+    <path d="M240,138 C228,122 210,128 220,142 C230,154 248,150 240,138Z" stroke-width="0.7" fill="#7A9E7A" fill-opacity="0.15"/>
+    <path d="M216,162 C230,150 228,132 216,140 C204,148 200,166 210,170 C218,172 216,162 216,162Z" stroke-width="0.7" fill="#7A9E7A" fill-opacity="0.15"/>
+    <path d="M188,188 C176,172 158,178 168,192 C178,204 196,200 188,188Z" stroke-width="0.7" fill="#7A9E7A" fill-opacity="0.15"/>
+    <path d="M162,210 C174,198 172,180 160,188 C148,196 144,214 154,218 C162,220 162,210 162,210Z" stroke-width="0.7" fill="#7A9E7A" fill-opacity="0.15"/>
+    <path d="M130,236 C118,220 100,226 110,240 C120,252 138,248 130,236Z" stroke-width="0.7" fill="#7A9E7A" fill-opacity="0.15"/>
+    <path d="M148,256 C144,248 136,248 138,256 C140,262 148,264 150,258 C152,252 148,256 148,256Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.14"/>
+    <path d="M92,270 C88,262 80,262 82,270 C84,276 92,278 94,272 C96,266 92,270 92,270Z" stroke-width="0.7" fill="#C4A44A" fill-opacity="0.14"/>
+    <circle cx="200" cy="170" r="2" fill="#C4A44A" fill-opacity="0.3"/>
+    <circle cx="178" cy="196" r="1.5" fill="#C4A44A" fill-opacity="0.28"/>
+    <circle cx="148" cy="224" r="2" fill="#C4A44A" fill-opacity="0.26"/>
+    <circle cx="116" cy="248" r="1.5" fill="#C4A44A" fill-opacity="0.24"/>
+  </g>
+</svg>
+
+<div class="page">
+  <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+  <p class="host-text">Mrs. &amp; Mr. Kamaluddin Khaja kindly invite you<br>to attend the Nikah ceremony of their daughter</p>
+  <div class="names-wrap">
+    <span class="name-script">Fatima Kamal Khaja</span>
+    <span class="ampersand">&amp;</span>
+    <span class="name-script">Keval Kabir Shah</span>
+  </div>
+  <div class="date-row">
+    <div class="date-col"><div class="d-label">July</div></div>
+    <div class="date-vline"></div>
+    <div class="date-col"><div class="d-label">Sun</div><div class="d-num">05</div></div>
+    <div class="date-vline"></div>
+    <div class="date-col"><div class="d-label">2026</div></div>
+  </div>
+  <p class="time-text">Two O'Clock in the Afternoon</p>
+  <div class="venue">
+    <span class="v-name">IAGD</span>
+    <span class="v-full">Islamic Association of Greater Detroit</span>
+    879 W Auburn Rd, Rochester Hills, MI 48307
+  </div>
+  <p class="reception">Reception to follow</p>
+  <div class="divider"><div class="div-line"></div><div class="div-diamond"></div><div class="div-line"></div></div>
+
+  <div class="card">
+    <div class="success" id="successMsg">
+      <div class="success-bloom">🌸</div>
+      <div class="success-title" id="successTitle">We'll see you there!</div>
+      <p class="success-msg" id="successBody">Thank you! We can't wait to celebrate this blessed day with you. 💕</p>
+    </div>
+    <div id="rsvpForm">
+      <p class="card-title">Nikah RSVP</p>
+      <p class="card-sub">Kindly reply by April 25, 2026</p>
+      <div class="field">
+        <label for="name">Your Full Name</label>
+        <input type="text" id="name" name="name" placeholder="First &amp; Last Name" required/>
+      </div>
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com"/>
+        <p class="field-hint">Optional — in case we need to reach you</p>
+      </div>
+      <div class="field">
+        <label>Will you be attending?</label>
+        <div class="toggle-group">
+          <button type="button" class="toggle-btn" id="btnYes" onclick="setAttendance('yes')">Joyfully Accepts</button>
+          <button type="button" class="toggle-btn" id="btnNo"  onclick="setAttendance('no')">Regretfully Declines</button>
+        </div>
+        <input type="hidden" id="attending" name="attending" value=""/>
+      </div>
+      <div class="extra-fields" id="extraFields">
+        <div class="field">
+          <label for="guestCount">How many people will be joining you?</label>
+          <select id="guestCount" name="guest_count">
+            <option value="1">Just me (1 person)</option>
+            <option value="2">2 people</option>
+            <option value="3">3 people</option>
+            <option value="4">4 people</option>
+            <option value="5">5 people</option>
+            <option value="6">6 people</option>
+            <option value="7">7 people</option>
+            <option value="8">8 people</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="guestNames">Names of guests joining you</label>
+          <textarea id="guestNames" name="guest_names" placeholder="e.g. Ahmed Khan, Sara Ahmed&#10;(Leave blank if coming alone)"></textarea>
+          <p class="field-hint">Please list the full names of everyone coming with you</p>
+        </div>
+      </div>
+      <div class="field">
+        <label for="message">A Warm Wish &amp; Dua for the Couple ✨</label>
+        <textarea id="message" name="message" placeholder="Share your duas and blessings…"></textarea>
+      </div>
+      <p class="note">We humbly request no boxed gifts 🌸</p>
+      <button class="submit-btn" id="submitBtn" onclick="submitRSVP()" disabled>Send My RSVP</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let attendance = null;
+  function setAttendance(val) {
+    attendance = val;
+    document.getElementById('attending').value = val;
+    document.getElementById('btnYes').className = 'toggle-btn' + (val==='yes'?' yes':'');
+    document.getElementById('btnNo').className  = 'toggle-btn' + (val==='no'?' no':'');
+    document.getElementById('extraFields').className = 'extra-fields' + (val==='yes'?' show':'');
+    checkReady();
+  }
+  function checkReady() {
+    document.getElementById('submitBtn').disabled = !(document.getElementById('name').value.trim() && attendance);
+  }
+  document.getElementById('name').addEventListener('input', checkReady);
+  async function submitRSVP() {
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    const name  = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const att   = attendance;
+    const count = document.getElementById('guestCount').value;
+    const names = document.getElementById('guestNames').value.trim();
+    const msg   = document.getElementById('message').value.trim();
+    const FORMSPREE_ID = "xojkokww";
+    try {
+      await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify({ name, email, event: 'Nikah Ceremony — July 5 2026', attending: att==='yes'?'Yes ✓':'No ✗', guest_count: att==='yes'?count:'N/A', guest_names: att==='yes'?(names||'—'):'N/A', message: msg||'—' })
+      });
+      showSuccess(name, att);
+    } catch { showSuccess(name, att); }
+  }
+  function showSuccess(name, att) {
+    document.getElementById('rsvpForm').style.display = 'none';
+    document.getElementById('successMsg').classList.add('show');
+    const first = name.split(' ')[0];
+    if (att==='yes') {
+      document.getElementById('successTitle').textContent = "We'll see you there!";
+      document.getElementById('successBody').textContent = `Thank you, ${first}! We can't wait to celebrate this blessed day with you. 💕`;
+    } else {
+      document.getElementById('successTitle').textContent = "We'll miss you!";
+      document.getElementById('successBody').textContent = `Thank you for letting us know, ${first}. You will be in our duas and prayers. 🤍`;
+    }
+  }
+</script>
+</body>
+</html>
