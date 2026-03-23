@@ -4,530 +4,271 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>RSVP — Fatima & Keval · July 5, 2026</title>
-<!-- friends-invite -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --dusty:    #B87A82;
-    --dusty-lt: #D4A0A8;
-    --dusty-dk: #8F5A62;
-    --rose-pale:#E8C5C8;
+    --blush:    #E8B4A8;
+    --blush-lt: #F2CFC7;
+    --blush-dk: #C4826E;
     --sage:     #7A9E7A;
     --sage-dk:  #5E7F5E;
-    --sage-lt:  #A3BEA3;
     --gold:     #B8935A;
     --gold-lt:  #D4AF7A;
     --brown:    #7A4A2A;
     --cream:    #FDF8F4;
-    --ivory:    #FAF3EE;
     --text:     #5C3A1E;
     --text-lt:  #9A7050;
   }
-
   html { scroll-behavior: smooth; }
+  body { background: var(--cream); font-family: "Cormorant Garamond", serif; min-height: 100vh; overflow-x: hidden; }
 
-  body {
-    background: var(--cream);
-    font-family: 'Cormorant Garamond', serif;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* ── Floral SVG Decorations ── */
-  .floral-corner {
-    position: fixed;
-    pointer-events: none;
-    z-index: 0;
-    width: min(360px, 55vw);
-  }
+  .floral-corner { position: fixed; pointer-events: none; z-index: 0; width: min(400px, 58vw); }
   .floral-tl { top: 0; left: 0; }
   .floral-br { bottom: 0; right: 0; transform: rotate(180deg); }
 
-  /* Ambient watercolor splatters */
-  .splatter {
-    position: fixed;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
-  }
+  .page { position: relative; z-index: 1; max-width: 580px; margin: 0 auto; padding: 64px 24px 100px; }
 
-  /* ── Layout ── */
-  .page {
-    position: relative;
-    z-index: 1;
-    max-width: 580px;
-    margin: 0 auto;
-    padding: 64px 24px 100px;
-  }
+  .bismillah { text-align: center; font-size: clamp(22px,5vw,30px); color: var(--brown); margin-bottom: 20px; font-style: italic; opacity: 0; animation: fadeUp .8s .1s forwards; }
+  .host-text { text-align: center; font-family: "Cinzel", serif; font-size: clamp(8px,1.8vw,10px); letter-spacing: 3px; color: var(--text-lt); text-transform: uppercase; line-height: 1.9; margin-bottom: 6px; opacity: 0; animation: fadeUp .8s .2s forwards; }
+  .names-wrap { text-align: center; opacity: 0; animation: fadeUp .8s .35s forwards; }
+  .name-script { font-family: "Great Vibes", cursive; font-size: clamp(38px,9vw,58px); color: var(--blush-dk); line-height: 1.15; display: block; }
+  .ampersand { font-family: "Great Vibes", cursive; font-size: clamp(28px,6vw,40px); color: var(--gold-lt); display: block; margin: -2px 0; }
 
-  /* ── Header ── */
-  .bismillah {
-    text-align: center;
-    font-size: clamp(22px, 5vw, 30px);
-    color: var(--brown);
-    margin-bottom: 20px;
-    font-style: italic;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.1s forwards;
-  }
-  .host-text {
-    text-align: center;
-    font-family: 'Cinzel', serif;
-    font-size: clamp(8px, 1.8vw, 10px);
-    letter-spacing: 3px;
-    color: var(--text-lt);
-    text-transform: uppercase;
-    line-height: 1.9;
-    margin-bottom: 6px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.2s forwards;
-  }
-  .names-wrap {
-    text-align: center;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.35s forwards;
-  }
-  .name-script {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(38px, 9vw, 58px);
-    color: var(--dusty-dk);
-    line-height: 1.15;
-    display: block;
-  }
-  .ampersand {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(28px, 6vw, 40px);
-    color: var(--gold-lt);
-    display: block;
-    margin: -2px 0;
-  }
-
-  /* ── Date Bar ── */
-  .date-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    margin: 28px 0 24px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.5s forwards;
-  }
+  .date-row { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 28px 0 24px; opacity: 0; animation: fadeUp .8s .5s forwards; }
   .hr-gold { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--gold-lt)); }
-  .hr-gold.r   { background: linear-gradient(to left, transparent, var(--gold-lt)); }
-  .date-pill {
-    background: var(--dusty-lt);
-    border-radius: 60px;
-    padding: 10px 20px;
-    text-align: center;
-    color: #fff;
-  }
-  .date-pill .mo { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; }
-  .date-pill .dy { font-family: 'Cinzel', serif; font-size: 28px; line-height: 1; font-weight: 500; }
-  .date-pill .yr { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1.5px; }
-  .date-side { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text-lt); text-align: center; }
+  .hr-gold.r { background: linear-gradient(to left, transparent, var(--gold-lt)); }
+  .date-pill { background: var(--blush); border-radius: 60px; padding: 10px 20px; text-align: center; color: #fff; }
+  .date-pill .mo { font-family: "Cinzel", serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; }
+  .date-pill .dy { font-family: "Cinzel", serif; font-size: 28px; line-height: 1; font-weight: 500; }
+  .date-pill .yr { font-family: "Cinzel", serif; font-size: 9px; letter-spacing: 1.5px; }
+  .date-side { font-family: "Cinzel", serif; font-size: 9px; letter-spacing: 2px; color: var(--text-lt); text-align: center; }
 
-  /* ── Venue ── */
-  .venue {
-    text-align: center;
-    color: var(--text-lt);
-    font-size: clamp(13px, 3vw, 15px);
-    line-height: 1.9;
-    margin-bottom: 36px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.6s forwards;
-  }
-  .venue strong {
-    display: block;
-    font-family: 'Cinzel', serif;
-    font-size: clamp(9px, 2vw, 11px);
-    letter-spacing: 2.5px;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    margin-bottom: 4px;
-    color: var(--brown);
-  }
+  .venue { text-align: center; color: var(--text-lt); font-size: clamp(13px,3vw,15px); line-height: 1.9; margin-bottom: 20px; opacity: 0; animation: fadeUp .8s .6s forwards; }
+  .venue strong { display: block; font-family: "Cinzel", serif; font-size: clamp(9px,2vw,11px); letter-spacing: 2.5px; text-decoration: underline; text-underline-offset: 4px; margin-bottom: 4px; color: var(--brown); }
 
-  /* ── Divider ── */
-  .divider {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 0 0 32px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.65s forwards;
+  .registry-link { text-align: center; margin-bottom: 30px; opacity: 0; animation: fadeUp .8s .62s forwards; }
+  .registry-link a {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: "Cinzel", serif; font-size: clamp(8px,1.8vw,10px);
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--brown); text-decoration: none;
+    border: 1px solid var(--gold-lt); border-radius: 50px;
+    padding: 9px 20px;
+    transition: background .2s, color .2s;
   }
-  .div-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--dusty-lt), transparent); }
+  .registry-link a:hover { background: var(--gold-lt); color: #fff; }
+
+  .divider { display: flex; align-items: center; gap: 10px; margin: 0 0 32px; opacity: 0; animation: fadeUp .8s .65s forwards; }
+  .div-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--blush-lt), transparent); }
   .div-dot  { width: 5px; height: 5px; background: var(--gold-lt); transform: rotate(45deg); flex-shrink: 0; }
 
-  /* ── RSVP Card ── */
-  .card {
-    background: rgba(255,255,255,0.75);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(184,122,130,0.2);
-    border-radius: 22px;
-    padding: clamp(28px,6vw,44px) clamp(22px,6vw,40px);
-    box-shadow: 0 10px 50px rgba(143,90,98,0.1);
-    opacity: 0;
-    animation: fadeUp 0.9s 0.75s forwards;
-  }
-  .card-title {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(9px,1.8vw,11px);
-    letter-spacing: 4px;
-    color: var(--dusty);
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 30px;
-  }
+  .card { background: rgba(255,255,255,0.78); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(196,130,110,.18); border-radius: 22px; padding: clamp(28px,6vw,44px) clamp(22px,6vw,40px); box-shadow: 0 10px 50px rgba(180,100,80,.09); opacity: 0; animation: fadeUp .9s .75s forwards; }
+  .card-title { font-family: "Cinzel", serif; font-size: clamp(9px,1.8vw,11px); letter-spacing: 4px; color: var(--blush-dk); text-align: center; text-transform: uppercase; margin-bottom: 30px; }
 
-  /* ── Fields ── */
   .field { margin-bottom: 22px; }
-  .field label {
-    display: block;
-    font-family: 'Cinzel', serif;
-    font-size: clamp(8px,1.6vw,9.5px);
-    letter-spacing: 2.5px;
-    color: var(--text-lt);
-    text-transform: uppercase;
-    margin-bottom: 9px;
-  }
-  input[type=text], input[type=email], input[type=number], select, textarea {
-    width: 100%;
-    border: 1px solid #DFC0C4;
-    border-radius: 12px;
-    padding: 13px 16px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
-    color: var(--text);
-    background: rgba(255,255,255,0.85);
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    -webkit-appearance: none;
-    appearance: none;
-  }
-  input:focus, select:focus, textarea:focus {
-    border-color: var(--dusty);
-    box-shadow: 0 0 0 3px rgba(184,122,130,0.14);
-  }
+  .field label { display: block; font-family: "Cinzel", serif; font-size: clamp(8px,1.6vw,9.5px); letter-spacing: 2.5px; color: var(--text-lt); text-transform: uppercase; margin-bottom: 9px; }
+  input[type=text], input[type=email], select, textarea { width: 100%; border: 1px solid #DFC0B4; border-radius: 12px; padding: 13px 16px; font-family: "Cormorant Garamond", serif; font-size: 16px; color: var(--text); background: rgba(255,255,255,.85); outline: none; transition: border-color .2s, box-shadow .2s; -webkit-appearance: none; appearance: none; }
+  input:focus, select:focus, textarea:focus { border-color: var(--blush-dk); box-shadow: 0 0 0 3px rgba(196,130,110,.13); }
   textarea { resize: vertical; min-height: 88px; }
-  select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B87A82' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 15px center;
-    padding-right: 40px;
-  }
+  select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C4826E' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 15px center; padding-right: 40px; }
 
-  /* ── Attendance Toggle ── */
   .toggle-group { display: flex; gap: 10px; }
-  .toggle-btn {
-    flex: 1;
-    padding: 12px 8px;
-    border: 1px solid #DFC0C4;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.85);
-    font-family: 'Cinzel', serif;
-    font-size: clamp(8px,1.8vw,10px);
-    letter-spacing: 1.8px;
-    color: var(--text-lt);
-    cursor: pointer;
-    transition: all 0.22s;
-    text-transform: uppercase;
-  }
-  .toggle-btn.yes {
-    background: var(--sage);
-    border-color: var(--sage);
-    color: #fff;
-    box-shadow: 0 3px 12px rgba(122,158,122,0.3);
-  }
-  .toggle-btn.no {
-    background: var(--dusty-lt);
-    border-color: var(--dusty-lt);
-    color: #fff;
-    box-shadow: 0 3px 12px rgba(184,122,130,0.25);
-  }
+  .toggle-btn { flex: 1; padding: 12px 8px; border: 1px solid #DFC0B4; border-radius: 12px; background: rgba(255,255,255,.85); font-family: "Cinzel", serif; font-size: clamp(8px,1.8vw,10px); letter-spacing: 1.8px; color: var(--text-lt); cursor: pointer; transition: all .22s; text-transform: uppercase; }
+  .toggle-btn.yes { background: var(--sage); border-color: var(--sage); color: #fff; box-shadow: 0 3px 12px rgba(122,158,122,.3); }
+  .toggle-btn.no  { background: var(--blush); border-color: var(--blush); color: #fff; box-shadow: 0 3px 12px rgba(196,130,110,.25); }
 
-  /* ── Collapsible extra fields ── */
-  .extra-fields {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.5s ease, opacity 0.4s ease;
-    opacity: 0;
-  }
-  .extra-fields.show { max-height: 600px; opacity: 1; }
+  .extra-fields { overflow: hidden; max-height: 0; transition: max-height .5s ease, opacity .4s ease; opacity: 0; }
+  .extra-fields.show { max-height: 500px; opacity: 1; }
+  .field-hint { font-size: 13px; color: var(--text-lt); font-style: italic; margin-top: 5px; }
 
-  /* ── Hint text ── */
-  .field-hint {
-    font-size: 13px;
-    color: var(--text-lt);
-    font-style: italic;
-    margin-top: 5px;
-  }
-
-  /* ── Submit ── */
-  .note {
-    text-align: center;
-    font-size: 14px;
-    color: var(--dusty);
-    font-style: italic;
-    margin-bottom: 18px;
-  }
-  .submit-btn {
-    width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, var(--dusty-dk), var(--dusty-lt));
-    border: none;
-    border-radius: 50px;
-    color: #fff;
-    font-family: 'Cinzel', serif;
-    font-size: clamp(9px,2vw,11px);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: opacity 0.2s, transform 0.15s;
-    box-shadow: 0 5px 24px rgba(143,90,98,0.32);
-  }
-  .submit-btn:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
+  .note { text-align: center; font-size: 14px; color: var(--blush-dk); font-style: italic; margin-bottom: 18px; }
+  .submit-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--blush-dk), var(--blush)); border: none; border-radius: 50px; color: #fff; font-family: "Cinzel", serif; font-size: clamp(9px,2vw,11px); letter-spacing: 3px; text-transform: uppercase; cursor: pointer; transition: opacity .2s, transform .15s; box-shadow: 0 5px 24px rgba(180,100,80,.3); }
+  .submit-btn:hover:not(:disabled) { opacity: .88; transform: translateY(-1px); }
   .submit-btn:active:not(:disabled) { transform: translateY(0); }
-  .submit-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  .submit-btn:disabled { opacity: .45; cursor: not-allowed; }
 
-  /* ── Success ── */
-  .success {
-    display: none;
-    text-align: center;
-    padding: 10px 0;
-  }
+  .success { display: none; text-align: center; padding: 10px 0; }
   .success.show { display: block; }
   .success-bloom { font-size: 52px; margin-bottom: 14px; }
-  .success-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(38px,9vw,52px);
-    color: var(--dusty-dk);
-    margin-bottom: 10px;
-  }
-  .success-msg {
-    font-size: clamp(15px,3.5vw,18px);
-    color: var(--text-lt);
-    font-style: italic;
-    line-height: 1.7;
-  }
+  .success-title { font-family: "Great Vibes", cursive; font-size: clamp(38px,9vw,52px); color: var(--blush-dk); margin-bottom: 10px; }
+  .success-msg { font-size: clamp(15px,3.5vw,18px); color: var(--text-lt); font-style: italic; line-height: 1.7; }
 
-  /* ── Error state ── */
-  .error-msg {
-    display: none;
-    text-align: center;
-    color: #b05050;
-    font-size: 14px;
-    margin-top: 12px;
-    font-style: italic;
-  }
-  .error-msg.show { display: block; }
-
-  /* ── Animations ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 480px) {
-    .card { padding: 26px 18px; }
-    .toggle-btn { font-size: 9px; letter-spacing: 1px; padding: 12px 4px; }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 480px) { .card { padding: 26px 18px; } .toggle-btn { font-size: 9px; letter-spacing: 1px; padding: 12px 4px; } }
 </style>
 </head>
 <body>
 
-<!-- Floral corner SVGs -->
-<svg class="floral-corner floral-tl" viewBox="0 0 360 330" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Dusty rose large bloom top-right area -->
-  <g opacity="0.88">
-    <!-- Outer petals -->
-    <ellipse cx="278" cy="52" rx="72" ry="62" fill="#C9949A" opacity="0.35"/>
-    <ellipse cx="272" cy="48" rx="56" ry="50" fill="#C08A90" opacity="0.4"/>
-    <ellipse cx="268" cy="54" rx="40" ry="36" fill="#B87A80" opacity="0.45"/>
-    <ellipse cx="274" cy="46" rx="26" ry="22" fill="#A86A70" opacity="0.5"/>
-    <!-- Petals radiating -->
-    <ellipse cx="238" cy="32" rx="26" ry="13" fill="#C9949A" opacity="0.5" transform="rotate(-30 238 32)"/>
-    <ellipse cx="308" cy="30" rx="26" ry="13" fill="#C9949A" opacity="0.5" transform="rotate(30 308 30)"/>
-    <ellipse cx="302" cy="78" rx="26" ry="13" fill="#C9949A" opacity="0.5" transform="rotate(60 302 78)"/>
-    <ellipse cx="245" cy="82" rx="26" ry="13" fill="#C9949A" opacity="0.5" transform="rotate(-60 245 82)"/>
-    <ellipse cx="270" cy="14" rx="24" ry="11" fill="#C9949A" opacity="0.45" transform="rotate(0 270 14)"/>
-    <ellipse cx="320" cy="54" rx="24" ry="11" fill="#C9949A" opacity="0.45" transform="rotate(90 320 54)"/>
-    <!-- Stamens -->
-    <circle cx="272" cy="46" r="8" fill="#C4A060" opacity="0.7"/>
-    <circle cx="272" cy="46" r="4" fill="#B89040" opacity="0.8"/>
+<!-- Blush peony watercolor corners -->
+<svg class="floral-corner floral-tl" viewBox="0 0 400 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Large blush peony, top right -->
+  <g opacity="0.9">
+    <!-- Outermost soft petals -->
+    <ellipse cx="310" cy="55" rx="80" ry="68" fill="#F2CFC4" opacity="0.3"/>
+    <!-- Mid petals layer 1 -->
+    <ellipse cx="305" cy="50" rx="64" ry="56" fill="#EEC0B2" opacity="0.38"/>
+    <ellipse cx="288" cy="62" rx="38" ry="50" fill="#EEC0B2" opacity="0.32" transform="rotate(-15 288 62)"/>
+    <ellipse cx="328" cy="62" rx="38" ry="50" fill="#EEC0B2" opacity="0.32" transform="rotate(15 328 62)"/>
+    <!-- Mid petals layer 2 -->
+    <ellipse cx="302" cy="48" rx="50" ry="44" fill="#E8B4A4" opacity="0.42"/>
+    <ellipse cx="278" cy="56" rx="32" ry="44" fill="#E8B4A4" opacity="0.36" transform="rotate(-20 278 56)"/>
+    <ellipse cx="334" cy="56" rx="32" ry="44" fill="#E8B4A4" opacity="0.36" transform="rotate(20 334 56)"/>
+    <ellipse cx="308" cy="20" rx="28" ry="38" fill="#E8B4A4" opacity="0.32" transform="rotate(0 308 20)"/>
+    <!-- Inner petals -->
+    <ellipse cx="305" cy="46" rx="36" ry="32" fill="#DFA090" opacity="0.45"/>
+    <ellipse cx="290" cy="50" rx="22" ry="30" fill="#DFA090" opacity="0.38" transform="rotate(-25 290 50)"/>
+    <ellipse cx="322" cy="50" rx="22" ry="30" fill="#DFA090" opacity="0.38" transform="rotate(25 322 50)"/>
+    <!-- Centre -->
+    <ellipse cx="306" cy="44" rx="20" ry="18" fill="#D4907E" opacity="0.5"/>
+    <ellipse cx="306" cy="43" rx="12" ry="11" fill="#C87A68" opacity="0.55"/>
+    <!-- Stamens dots -->
+    <circle cx="302" cy="40" r="2.5" fill="#C4A060" opacity="0.7"/>
+    <circle cx="310" cy="39" r="2"   fill="#C4A060" opacity="0.7"/>
+    <circle cx="306" cy="37" r="2"   fill="#C4A060" opacity="0.65"/>
+    <circle cx="298" cy="43" r="1.5" fill="#B89040" opacity="0.6"/>
+    <circle cx="314" cy="43" r="1.5" fill="#B89040" opacity="0.6"/>
   </g>
-  <!-- Smaller dusty bloom left -->
-  <g opacity="0.8">
-    <ellipse cx="68" cy="38" rx="34" ry="30" fill="#C9949A" opacity="0.35"/>
-    <ellipse cx="70" cy="36" rx="24" ry="22" fill="#C08A90" opacity="0.42"/>
-    <ellipse cx="68" cy="38" rx="14" ry="13" fill="#B07A80" opacity="0.5"/>
-    <ellipse cx="50" cy="24" rx="18" ry="9" fill="#C9949A" opacity="0.45" transform="rotate(-25 50 24)"/>
-    <ellipse cx="86" cy="24" rx="18" ry="9" fill="#C9949A" opacity="0.45" transform="rotate(25 86 24)"/>
-    <ellipse cx="88" cy="50" rx="18" ry="9" fill="#C9949A" opacity="0.4" transform="rotate(55 88 50)"/>
-    <ellipse cx="50" cy="52" rx="18" ry="9" fill="#C9949A" opacity="0.4" transform="rotate(-55 50 52)"/>
-    <circle cx="68" cy="36" r="5" fill="#C4A060" opacity="0.65"/>
+  <!-- Smaller peony bud, left -->
+  <g opacity="0.82">
+    <ellipse cx="72" cy="42" rx="36" ry="32" fill="#F2CFC4" opacity="0.32"/>
+    <ellipse cx="74" cy="40" rx="28" ry="25" fill="#EEC0B2" opacity="0.4"/>
+    <ellipse cx="62" cy="44" rx="18" ry="26" fill="#E8B4A4" opacity="0.38" transform="rotate(-18 62 44)"/>
+    <ellipse cx="84" cy="44" rx="18" ry="26" fill="#E8B4A4" opacity="0.38" transform="rotate(18 84 44)"/>
+    <ellipse cx="73" cy="38" rx="20" ry="18" fill="#DFA090" opacity="0.45"/>
+    <ellipse cx="73" cy="37" rx="11" ry="10" fill="#C87A68" opacity="0.5"/>
+    <circle cx="71" cy="34" r="2" fill="#C4A060" opacity="0.65"/>
+    <circle cx="76" cy="33" r="1.5" fill="#C4A060" opacity="0.6"/>
   </g>
-  <!-- Rose bud lower left -->
-  <g opacity="0.7">
-    <ellipse cx="30" cy="150" rx="18" ry="22" fill="#C9949A" opacity="0.4" transform="rotate(-10 30 150)"/>
-    <ellipse cx="32" cy="148" rx="12" ry="16" fill="#B07A80" opacity="0.45" transform="rotate(-10 32 148)"/>
-    <ellipse cx="28" cy="155" rx="10" ry="14" fill="#C9949A" opacity="0.38" transform="rotate(10 28 155)"/>
+  <!-- Small rose bud lower -->
+  <g opacity="0.72">
+    <ellipse cx="28" cy="168" rx="16" ry="20" fill="#F2CFC4" opacity="0.38" transform="rotate(-8 28 168)"/>
+    <ellipse cx="30" cy="166" rx="10" ry="15" fill="#DFA090" opacity="0.44" transform="rotate(-8 30 166)"/>
+    <ellipse cx="26" cy="170" rx="9"  ry="13" fill="#EEC0B2" opacity="0.36" transform="rotate(8 26 170)"/>
   </g>
   <!-- Sage leaves -->
-  <g opacity="0.78">
-    <ellipse cx="170" cy="118" rx="52" ry="19" fill="#7A9E7A" transform="rotate(-28 170 118)"/>
-    <ellipse cx="125" cy="152" rx="56" ry="17" fill="#6B8F6B" transform="rotate(18 125 152)"/>
-    <ellipse cx="210" cy="138" rx="44" ry="15" fill="#8FAF8E" transform="rotate(-48 210 138)"/>
-    <ellipse cx="55" cy="175" rx="48" ry="16" fill="#7A9E7A" transform="rotate(32 55 175)"/>
-    <ellipse cx="148" cy="85" rx="38" ry="13" fill="#6B8F6B" transform="rotate(-12 148 85)"/>
-    <ellipse cx="28" cy="100" rx="32" ry="12" fill="#8FAF8E" transform="rotate(42 28 100)"/>
-    <ellipse cx="230" cy="96" rx="40" ry="14" fill="#7A9E7A" transform="rotate(-58 230 96)"/>
-    <ellipse cx="90" cy="200" rx="44" ry="15" fill="#6B8F6B" transform="rotate(22 90 200)"/>
-    <ellipse cx="15" cy="230" rx="36" ry="12" fill="#8FAF8E" transform="rotate(-15 15 230)"/>
+  <g opacity="0.82">
+    <ellipse cx="185" cy="126" rx="58" ry="20" fill="#7A9E7A" transform="rotate(-26 185 126)"/>
+    <ellipse cx="135" cy="162" rx="62" ry="18" fill="#6B8F6B" transform="rotate(16 135 162)"/>
+    <ellipse cx="228" cy="148" rx="48" ry="16" fill="#8FAF8E" transform="rotate(-46 228 148)"/>
+    <ellipse cx="58"  cy="188" rx="52" ry="17" fill="#7A9E7A" transform="rotate(30 58 188)"/>
+    <ellipse cx="155" cy="90"  rx="42" ry="14" fill="#6B8F6B" transform="rotate(-10 155 90)"/>
+    <ellipse cx="30"  cy="110" rx="36" ry="13" fill="#8FAF8E" transform="rotate(40 30 110)"/>
+    <ellipse cx="248" cy="104" rx="44" ry="15" fill="#7A9E7A" transform="rotate(-55 248 104)"/>
+    <ellipse cx="95"  cy="215" rx="48" ry="16" fill="#6B8F6B" transform="rotate(20 95 215)"/>
+    <ellipse cx="16"  cy="248" rx="38" ry="13" fill="#8FAF8E" transform="rotate(-12 16 248)"/>
+    <!-- Leaf veins suggestion -->
+    <ellipse cx="180" cy="122" rx="52" ry="6"  fill="#5E7F5E" opacity="0.15" transform="rotate(-26 180 122)"/>
+    <ellipse cx="130" cy="158" rx="56" ry="6"  fill="#5E7F5E" opacity="0.15" transform="rotate(16 130 158)"/>
   </g>
-  <!-- Splatters -->
-  <circle cx="44" cy="28" r="3.5" fill="#C9949A" opacity="0.45"/>
-  <circle cx="15" cy="68" r="2.5" fill="#C9949A" opacity="0.4"/>
-  <circle cx="185" cy="18" r="3" fill="#C9949A" opacity="0.4"/>
-  <circle cx="105" cy="8"  r="2" fill="#C9949A" opacity="0.38"/>
-  <circle cx="60"  cy="208" r="3" fill="#C9949A" opacity="0.35"/>
-  <circle cx="12"  cy="158" r="2" fill="#C9949A" opacity="0.35"/>
-  <circle cx="330" cy="18" r="2.5" fill="#C9949A" opacity="0.4"/>
-  <circle cx="24"  cy="116" r="2" fill="#B07A80" opacity="0.4"/>
+  <!-- Watercolor splatters -->
+  <circle cx="48"  cy="22"  r="4"   fill="#EEC0B2" opacity="0.5"/>
+  <circle cx="18"  cy="72"  r="3"   fill="#EEC0B2" opacity="0.42"/>
+  <circle cx="195" cy="14"  r="3.5" fill="#EEC0B2" opacity="0.44"/>
+  <circle cx="112" cy="6"   r="2.5" fill="#EEC0B2" opacity="0.38"/>
+  <circle cx="65"  cy="218" r="3.5" fill="#EEC0B2" opacity="0.36"/>
+  <circle cx="14"  cy="165" r="2.5" fill="#DFA090" opacity="0.38"/>
+  <circle cx="345" cy="16"  r="3"   fill="#EEC0B2" opacity="0.42"/>
+  <circle cx="26"  cy="128" r="2"   fill="#DFA090" opacity="0.4"/>
+  <circle cx="255" cy="22"  r="2.5" fill="#EEC0B2" opacity="0.38"/>
+  <circle cx="380" cy="35"  r="2"   fill="#EEC0B2" opacity="0.35"/>
+  <circle cx="8"   cy="198" r="2"   fill="#EEC0B2" opacity="0.32"/>
 </svg>
 
-<svg class="floral-corner floral-br" viewBox="0 0 360 330" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g opacity="0.88">
-    <ellipse cx="278" cy="52" rx="72" ry="62" fill="#C9949A" opacity="0.35"/>
-    <ellipse cx="272" cy="48" rx="56" ry="50" fill="#C08A90" opacity="0.4"/>
-    <ellipse cx="268" cy="54" rx="40" ry="36" fill="#B87A80" opacity="0.45"/>
-    <ellipse cx="274" cy="46" rx="26" ry="22" fill="#A86A70" opacity="0.5"/>
-    <ellipse cx="238" cy="32" rx="26" ry="13" fill="#C9949A" opacity="0.5" transform="rotate(-30 238 32)"/>
-    <ellipse cx="308" cy="30" rx="26" ry="13" fill="#C9949A" opacity="0.5" transform="rotate(30 308 30)"/>
-    <ellipse cx="302" cy="78" rx="26" ry="13" fill="#C9949A" opacity="0.5" transform="rotate(60 302 78)"/>
-    <ellipse cx="245" cy="82" rx="26" ry="13" fill="#C9949A" opacity="0.5" transform="rotate(-60 245 82)"/>
-    <ellipse cx="270" cy="14" rx="24" ry="11" fill="#C9949A" opacity="0.45"/>
-    <ellipse cx="320" cy="54" rx="24" ry="11" fill="#C9949A" opacity="0.45" transform="rotate(90 320 54)"/>
-    <circle cx="272" cy="46" r="8" fill="#C4A060" opacity="0.7"/>
-    <circle cx="272" cy="46" r="4" fill="#B89040" opacity="0.8"/>
+<svg class="floral-corner floral-br" viewBox="0 0 400 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.9">
+    <ellipse cx="310" cy="55" rx="80" ry="68" fill="#F2CFC4" opacity="0.3"/>
+    <ellipse cx="305" cy="50" rx="64" ry="56" fill="#EEC0B2" opacity="0.38"/>
+    <ellipse cx="288" cy="62" rx="38" ry="50" fill="#EEC0B2" opacity="0.32" transform="rotate(-15 288 62)"/>
+    <ellipse cx="328" cy="62" rx="38" ry="50" fill="#EEC0B2" opacity="0.32" transform="rotate(15 328 62)"/>
+    <ellipse cx="302" cy="48" rx="50" ry="44" fill="#E8B4A4" opacity="0.42"/>
+    <ellipse cx="278" cy="56" rx="32" ry="44" fill="#E8B4A4" opacity="0.36" transform="rotate(-20 278 56)"/>
+    <ellipse cx="334" cy="56" rx="32" ry="44" fill="#E8B4A4" opacity="0.36" transform="rotate(20 334 56)"/>
+    <ellipse cx="308" cy="20" rx="28" ry="38" fill="#E8B4A4" opacity="0.32"/>
+    <ellipse cx="305" cy="46" rx="36" ry="32" fill="#DFA090" opacity="0.45"/>
+    <ellipse cx="290" cy="50" rx="22" ry="30" fill="#DFA090" opacity="0.38" transform="rotate(-25 290 50)"/>
+    <ellipse cx="322" cy="50" rx="22" ry="30" fill="#DFA090" opacity="0.38" transform="rotate(25 322 50)"/>
+    <ellipse cx="306" cy="44" rx="20" ry="18" fill="#D4907E" opacity="0.5"/>
+    <ellipse cx="306" cy="43" rx="12" ry="11" fill="#C87A68" opacity="0.55"/>
+    <circle cx="302" cy="40" r="2.5" fill="#C4A060" opacity="0.7"/>
+    <circle cx="310" cy="39" r="2"   fill="#C4A060" opacity="0.7"/>
+    <circle cx="306" cy="37" r="2"   fill="#C4A060" opacity="0.65"/>
   </g>
-  <g opacity="0.8">
-    <ellipse cx="68" cy="38" rx="34" ry="30" fill="#C9949A" opacity="0.35"/>
-    <ellipse cx="70" cy="36" rx="24" ry="22" fill="#C08A90" opacity="0.42"/>
-    <ellipse cx="68" cy="38" rx="14" ry="13" fill="#B07A80" opacity="0.5"/>
-    <ellipse cx="50" cy="24" rx="18" ry="9" fill="#C9949A" opacity="0.45" transform="rotate(-25 50 24)"/>
-    <ellipse cx="86" cy="24" rx="18" ry="9" fill="#C9949A" opacity="0.45" transform="rotate(25 86 24)"/>
-    <ellipse cx="88" cy="50" rx="18" ry="9" fill="#C9949A" opacity="0.4" transform="rotate(55 88 50)"/>
-    <ellipse cx="50" cy="52" rx="18" ry="9" fill="#C9949A" opacity="0.4" transform="rotate(-55 50 52)"/>
-    <circle cx="68" cy="36" r="5" fill="#C4A060" opacity="0.65"/>
+  <g opacity="0.82">
+    <ellipse cx="72" cy="42" rx="36" ry="32" fill="#F2CFC4" opacity="0.32"/>
+    <ellipse cx="74" cy="40" rx="28" ry="25" fill="#EEC0B2" opacity="0.4"/>
+    <ellipse cx="62" cy="44" rx="18" ry="26" fill="#E8B4A4" opacity="0.38" transform="rotate(-18 62 44)"/>
+    <ellipse cx="84" cy="44" rx="18" ry="26" fill="#E8B4A4" opacity="0.38" transform="rotate(18 84 44)"/>
+    <ellipse cx="73" cy="38" rx="20" ry="18" fill="#DFA090" opacity="0.45"/>
+    <ellipse cx="73" cy="37" rx="11" ry="10" fill="#C87A68" opacity="0.5"/>
   </g>
-  <g opacity="0.78">
-    <ellipse cx="170" cy="118" rx="52" ry="19" fill="#7A9E7A" transform="rotate(-28 170 118)"/>
-    <ellipse cx="125" cy="152" rx="56" ry="17" fill="#6B8F6B" transform="rotate(18 125 152)"/>
-    <ellipse cx="210" cy="138" rx="44" ry="15" fill="#8FAF8E" transform="rotate(-48 210 138)"/>
-    <ellipse cx="55"  cy="175" rx="48" ry="16" fill="#7A9E7A" transform="rotate(32 55 175)"/>
-    <ellipse cx="148" cy="85"  rx="38" ry="13" fill="#6B8F6B" transform="rotate(-12 148 85)"/>
-    <ellipse cx="28"  cy="100" rx="32" ry="12" fill="#8FAF8E" transform="rotate(42 28 100)"/>
-    <ellipse cx="230" cy="96"  rx="40" ry="14" fill="#7A9E7A" transform="rotate(-58 230 96)"/>
-    <ellipse cx="90"  cy="200" rx="44" ry="15" fill="#6B8F6B" transform="rotate(22 90 200)"/>
+  <g opacity="0.82">
+    <ellipse cx="185" cy="126" rx="58" ry="20" fill="#7A9E7A" transform="rotate(-26 185 126)"/>
+    <ellipse cx="135" cy="162" rx="62" ry="18" fill="#6B8F6B" transform="rotate(16 135 162)"/>
+    <ellipse cx="228" cy="148" rx="48" ry="16" fill="#8FAF8E" transform="rotate(-46 228 148)"/>
+    <ellipse cx="58"  cy="188" rx="52" ry="17" fill="#7A9E7A" transform="rotate(30 58 188)"/>
+    <ellipse cx="155" cy="90"  rx="42" ry="14" fill="#6B8F6B" transform="rotate(-10 155 90)"/>
+    <ellipse cx="30"  cy="110" rx="36" ry="13" fill="#8FAF8E" transform="rotate(40 30 110)"/>
+    <ellipse cx="248" cy="104" rx="44" ry="15" fill="#7A9E7A" transform="rotate(-55 248 104)"/>
+    <ellipse cx="95"  cy="215" rx="48" ry="16" fill="#6B8F6B" transform="rotate(20 95 215)"/>
   </g>
-  <circle cx="44" cy="28" r="3.5" fill="#C9949A" opacity="0.45"/>
-  <circle cx="15" cy="68" r="2.5" fill="#C9949A" opacity="0.4"/>
-  <circle cx="185" cy="18" r="3" fill="#C9949A" opacity="0.4"/>
-  <circle cx="330" cy="18" r="2.5" fill="#C9949A" opacity="0.4"/>
+  <circle cx="48"  cy="22"  r="4"   fill="#EEC0B2" opacity="0.5"/>
+  <circle cx="18"  cy="72"  r="3"   fill="#EEC0B2" opacity="0.42"/>
+  <circle cx="195" cy="14"  r="3.5" fill="#EEC0B2" opacity="0.44"/>
+  <circle cx="345" cy="16"  r="3"   fill="#EEC0B2" opacity="0.42"/>
+  <circle cx="255" cy="22"  r="2.5" fill="#EEC0B2" opacity="0.38"/>
+  <circle cx="380" cy="35"  r="2"   fill="#EEC0B2" opacity="0.35"/>
 </svg>
 
 <div class="page">
-
-  <!-- Header -->
-  <p class="host-text">
-    Please join us in celebrating<br>
-     the wedding of <br>
-  </p>
-
+  <p class="host-text">Mrs. &amp; Mr. Khaja Kamaluddin<br>kindly invite you to celebrate the wedding of their daughter</p>
   <div class="names-wrap">
     <span class="name-script">Fatima Kamal Khaja</span>
     <span class="ampersand">&amp;</span>
-    <span class="name-script">Keval Deepak Shah</span>
+    <span class="name-script">Keval Shah</span>
   </div>
-
-  <!-- Date -->
   <div class="date-row">
     <div class="date-side">Sunday</div>
     <div class="hr-gold"></div>
-    <div class="date-pill">
-      <div class="mo">July</div>
-      <div class="dy">05</div>
-      <div class="yr">2026</div>
-    </div>
+    <div class="date-pill"><div class="mo">July</div><div class="dy">05</div><div class="yr">2026</div></div>
     <div class="hr-gold r"></div>
     <div class="date-side">6 PM</div>
   </div>
-
-  <!-- Venue -->
   <div class="venue">
     <strong>Macray Harbor Event Center</strong>
     30675 N River Rd, Harrison Twp, MI 48045
   </div>
-
-  <!-- Divider -->
-  <div class="divider">
-    <div class="div-line"></div>
-    <div class="div-dot"></div>
-    <div class="div-line"></div>
+  <div class="registry-link">
+    <a href="YOUR_REGISTRY_LINK" target="_blank" rel="noopener">🎁 &nbsp;View Our Registry</a>
   </div>
+  <div class="divider"><div class="div-line"></div><div class="div-dot"></div><div class="div-line"></div></div>
 
-  <!-- RSVP Card -->
   <div class="card">
-
-    <!-- Success state (hidden until submit) -->
     <div class="success" id="successMsg">
       <div class="success-bloom">🌸</div>
       <div class="success-title" id="successTitle">We'll see you there!</div>
-      <p class="success-msg" id="successBody">
-        Thank you so much! We can't wait to celebrate with you. 💕
-      </p>
+      <p class="success-msg" id="successBody">Thank you so much! We can't wait to celebrate with you. 💕</p>
     </div>
-
-    <!-- Form -->
     <div id="rsvpForm">
       <p class="card-title">Kindly reply by April 25, 2026</p>
-
-      <!-- ❶ Full Name -->
       <div class="field">
         <label for="name">Your Full Name</label>
         <input type="text" id="name" name="name" placeholder="First &amp; Last Name" required/>
       </div>
-
-      <!-- ❷ Email -->
       <div class="field">
         <label for="email">Email Address</label>
         <input type="email" id="email" name="email" placeholder="your@email.com"/>
         <p class="field-hint">Optional — in case we need to reach you</p>
       </div>
-
-      <!-- ❸ Attendance Toggle -->
       <div class="field">
         <label>Will you be attending?</label>
         <div class="toggle-group">
-          <button type="button" class="toggle-btn" id="btnYes" onclick="setAttendance('yes')">
-            Joyfully Accepts
-          </button>
-          <button type="button" class="toggle-btn" id="btnNo" onclick="setAttendance('no')">
-            Regretfully Declines
-          </button>
+          <button type="button" class="toggle-btn" id="btnYes" onclick="setAttendance('yes')">Joyfully Accepts</button>
+          <button type="button" class="toggle-btn" id="btnNo"  onclick="setAttendance('no')">Regretfully Declines</button>
         </div>
         <input type="hidden" id="attending" name="attending" value=""/>
       </div>
-
-      <!-- ❹ Extra fields (visible only if attending) -->
       <div class="extra-fields" id="extraFields">
-
-        <!-- Number of people joining -->
         <div class="field">
           <label for="guestCount">How many people will be joining you?</label>
           <select id="guestCount" name="guest_count">
@@ -538,122 +279,73 @@
             <option value="5">5 people</option>
           </select>
         </div>
-
-        <!-- Names of guests -->
         <div class="field">
           <label for="guestNames">Names of guests joining you</label>
-          <textarea id="guestNames" name="guest_names"
-            placeholder="e.g. Ahmed Khan, Sara Ahmed&#10;(Leave blank if coming alone)"></textarea>
+          <textarea id="guestNames" name="guest_names" placeholder="e.g. Ahmed Khan, Sara Ahmed&#10;(Leave blank if coming alone)"></textarea>
           <p class="field-hint">Please list the full names of everyone coming with you</p>
         </div>
-
-        <!-- Dietary -->
-        <div class="field">
-          <label for="dietary">Dietary Restrictions / Allergies</label>
-          <input type="text" id="dietary" name="dietary"
-            placeholder="e.g. Halal, vegetarian, nut allergy…"/>
-        </div>
-
-      </div><!-- /extra-fields -->
-
-      <!-- ❺ Warm wishes (always visible) -->
+      </div>
       <div class="field">
         <label for="message">A Warm Wish for the Couple ✨</label>
-        <textarea id="message" name="message"
-          placeholder="Share your blessings for Fatima &amp; Keval…"></textarea>
+        <textarea id="message" name="message" placeholder="Share your blessings for Fatima &amp; Keval…"></textarea>
       </div>
-
       <p class="note">We humbly request no boxed gifts 🌸</p>
-
-      <button class="submit-btn" id="submitBtn" onclick="submitRSVP()" disabled>
-        Send My RSVP
-      </button>
-
-      <p class="error-msg" id="errorMsg">
-        Something went wrong — please try again or contact us directly.
-      </p>
+      <button class="submit-btn" id="submitBtn" onclick="submitRSVP()" disabled>Send My RSVP</button>
     </div>
-
-  </div><!-- /card -->
-</div><!-- /page -->
+  </div>
+</div>
 
 <script>
-  // ─── State ───────────────────────────────────────
   let attendance = null;
-
   function setAttendance(val) {
     attendance = val;
     document.getElementById('attending').value = val;
-    document.getElementById('btnYes').className = 'toggle-btn' + (val === 'yes' ? ' yes' : '');
-    document.getElementById('btnNo').className  = 'toggle-btn' + (val === 'no'  ? ' no'  : '');
-    document.getElementById('extraFields').className =
-      'extra-fields' + (val === 'yes' ? ' show' : '');
+    document.getElementById('btnYes').className = 'toggle-btn' + (val==='yes'?' yes':'');
+    document.getElementById('btnNo').className  = 'toggle-btn' + (val==='no'?' no':'');
+    document.getElementById('extraFields').className = 'extra-fields' + (val==='yes'?' show':'');
     checkReady();
   }
-
   function checkReady() {
-    const name = document.getElementById('name').value.trim();
-    document.getElementById('submitBtn').disabled = !(name && attendance);
+    document.getElementById('submitBtn').disabled = !(document.getElementById('name').value.trim() && attendance);
   }
   document.getElementById('name').addEventListener('input', checkReady);
 
-  // ─── Submit ──────────────────────────────────────
   async function submitRSVP() {
     const btn = document.getElementById('submitBtn');
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-
-    const name     = document.getElementById('name').value.trim();
-    const email    = document.getElementById('email').value.trim();
-    const att      = attendance;
-    const count    = document.getElementById('guestCount').value;
-    const names    = document.getElementById('guestNames').value.trim();
-    const dietary  = document.getElementById('dietary').value.trim();
-    const message  = document.getElementById('message').value.trim();
-
-    // ── Formspree submission ──────────────────────────────────
-    // REPLACE "YOUR_FORM_ID" below with your actual Formspree form ID
+    btn.disabled = true; btn.textContent = 'Sending…';
+    const name  = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const att   = attendance;
+    const count = document.getElementById('guestCount').value;
+    const names = document.getElementById('guestNames').value.trim();
+    const msg   = document.getElementById('message').value.trim();
     const FORMSPREE_ID = "mojkoloz";
-
     try {
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        headers: {'Content-Type':'application/json','Accept':'application/json'},
         body: JSON.stringify({
           name, email,
-          attending: att === 'yes' ? 'Yes ✓' : 'No ✗',
-          guest_count: att === 'yes' ? count : 'N/A',
-          guest_names: att === 'yes' ? (names || '—') : 'N/A',
-          dietary:     att === 'yes' ? (dietary || '—') : 'N/A',
-          message:     message || '—'
+          attending:   att==='yes' ? 'Yes ✓' : 'No ✗',
+          guest_count: att==='yes' ? count : 'N/A',
+          guest_names: att==='yes' ? (names||'—') : 'N/A',
+          message:     msg||'—'
         })
       });
-
-      if (res.ok) {
-        showSuccess(name, att);
-      } else {
-        // If Formspree isn't set up yet, still show success locally
-        showSuccess(name, att);
-      }
-    } catch {
-      // Network error — still show success (offline fallback)
       showSuccess(name, att);
-    }
+    } catch { showSuccess(name, att); }
   }
 
   function showSuccess(name, att) {
     document.getElementById('rsvpForm').style.display = 'none';
-    const s = document.getElementById('successMsg');
-    s.classList.add('show');
+    document.getElementById('successMsg').classList.add('show');
     const first = name.split(' ')[0];
-    if (att === 'yes') {
+    if (att==='yes') {
       document.getElementById('successTitle').textContent = "We'll see you there!";
-      document.getElementById('successBody').textContent =
-        `Thank you, ${first}! We can't wait to celebrate with you. 💕`;
+      document.getElementById('successBody').textContent = `Thank you, ${first}! We can't wait to celebrate with you. 💕`;
     } else {
       document.getElementById('successTitle').textContent = "We'll miss you!";
-      document.getElementById('successBody').textContent =
-        `Thank you for letting us know, ${first}. You will be in our hearts and prayers. 🤍`;
+      document.getElementById('successBody').textContent = `Thank you for letting us know, ${first}. You will be in our hearts and prayers. 🤍`;
     }
   }
 </script>
