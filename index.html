@@ -18,7 +18,7 @@
     --brown:    #7A4A2A;
     --cream:    #FDF8F4;
     --text:     #5C3A1E;
-    --text-lt:  #9A7050;
+    --text-lt:  #6B4828;
   }
   html { scroll-behavior: smooth; }
   body { background: var(--cream); font-family: "Cormorant Garamond", serif; min-height: 100vh; overflow-x: hidden; }
@@ -30,7 +30,7 @@
   .page { position: relative; z-index: 1; max-width: 580px; margin: 0 auto; padding: 64px 24px 100px; }
 
   .bismillah { text-align: center; font-size: clamp(22px,5vw,30px); color: var(--brown); margin-bottom: 20px; font-style: italic; opacity: 0; animation: fadeUp .8s .1s forwards; }
-  .host-text { text-align: center; font-family: "Cinzel", serif; font-size: clamp(8px,1.8vw,10px); letter-spacing: 3px; color: var(--text-lt); text-transform: uppercase; line-height: 1.9; margin-bottom: 6px; opacity: 0; animation: fadeUp .8s .2s forwards; }
+  .host-text { text-align: center; font-family: "Cinzel", serif; font-size: clamp(11px,2vw,13px); letter-spacing: 3px; color: var(--text-lt); text-transform: uppercase; line-height: 1.9; margin-bottom: 6px; font-weight: 500; opacity: 0; animation: fadeUp .8s .2s forwards; }
   .names-wrap { text-align: center; opacity: 0; animation: fadeUp .8s .35s forwards; }
   .name-script { font-family: "Great Vibes", cursive; font-size: clamp(38px,9vw,58px); color: var(--blush-dk); line-height: 1.15; display: block; }
   .ampersand { font-family: "Great Vibes", cursive; font-size: clamp(28px,6vw,40px); color: var(--gold-lt); display: block; margin: -2px 0; }
@@ -42,9 +42,9 @@
   .date-pill .mo { font-family: "Cinzel", serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; }
   .date-pill .dy { font-family: "Cinzel", serif; font-size: 28px; line-height: 1; font-weight: 500; }
   .date-pill .yr { font-family: "Cinzel", serif; font-size: 9px; letter-spacing: 1.5px; }
-  .date-side { font-family: "Cinzel", serif; font-size: 9px; letter-spacing: 2px; color: var(--text-lt); text-align: center; }
+  .date-side { font-family: "Cinzel", serif; font-size: 13px; letter-spacing: 2px; color: var(--text-lt); text-align: center; font-weight: 500; }
 
-  .venue { text-align: center; color: var(--text-lt); font-size: clamp(13px,3vw,15px); line-height: 1.9; margin-bottom: 20px; opacity: 0; animation: fadeUp .8s .6s forwards; }
+  .venue { text-align: center; color: var(--text-lt); font-size: clamp(15px,3vw,17px); line-height: 1.9; margin-bottom: 20px; font-weight: 500; opacity: 0; animation: fadeUp .8s .6s forwards; }
   .venue strong { display: block; font-family: "Cinzel", serif; font-size: clamp(9px,2vw,11px); letter-spacing: 2.5px; text-decoration: underline; text-underline-offset: 4px; margin-bottom: 4px; color: var(--brown); }
 
   .registry-link { text-align: center; margin-bottom: 30px; opacity: 0; animation: fadeUp .8s .62s forwards; }
@@ -64,17 +64,17 @@
   .div-dot  { width: 5px; height: 5px; background: var(--gold-lt); transform: rotate(45deg); flex-shrink: 0; }
 
   .card { background: rgba(255,255,255,0.78); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(196,130,110,.18); border-radius: 22px; padding: clamp(28px,6vw,44px) clamp(22px,6vw,40px); box-shadow: 0 10px 50px rgba(180,100,80,.09); opacity: 0; animation: fadeUp .9s .75s forwards; }
-  .card-title { font-family: "Cinzel", serif; font-size: clamp(9px,1.8vw,11px); letter-spacing: 4px; color: var(--blush-dk); text-align: center; text-transform: uppercase; margin-bottom: 30px; }
+  .card-title { font-family: "Cinzel", serif; font-size: clamp(11px,2vw,13px); letter-spacing: 4px; color: var(--blush-dk); text-align: center; text-transform: uppercase; font-weight: 500; margin-bottom: 30px; }
 
   .field { margin-bottom: 22px; }
-  .field label { display: block; font-family: "Cinzel", serif; font-size: clamp(8px,1.6vw,9.5px); letter-spacing: 2.5px; color: var(--text-lt); text-transform: uppercase; margin-bottom: 9px; }
+  .field label { display: block; font-family: "Cinzel", serif; font-size: clamp(8px,1.6vw,9.5px); letter-spacing: 2.5px; color: var(--text-lt); text-transform: uppercase; margin-bottom: 9px; font-weight: 600; }
   input[type=text], input[type=email], select, textarea { width: 100%; border: 1px solid #DFC0B4; border-radius: 12px; padding: 13px 16px; font-family: "Cormorant Garamond", serif; font-size: 16px; color: var(--text); background: rgba(255,255,255,.85); outline: none; transition: border-color .2s, box-shadow .2s; -webkit-appearance: none; appearance: none; }
   input:focus, select:focus, textarea:focus { border-color: var(--blush-dk); box-shadow: 0 0 0 3px rgba(196,130,110,.13); }
   textarea { resize: vertical; min-height: 88px; }
   select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C4826E' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 15px center; padding-right: 40px; }
 
   .toggle-group { display: flex; gap: 10px; }
-  .toggle-btn { flex: 1; padding: 12px 8px; border: 1px solid #DFC0B4; border-radius: 12px; background: rgba(255,255,255,.85); font-family: "Cinzel", serif; font-size: clamp(8px,1.8vw,10px); letter-spacing: 1.8px; color: var(--text-lt); cursor: pointer; transition: all .22s; text-transform: uppercase; }
+  .toggle-btn { flex: 1; padding: 12px 8px; border: 1px solid #DFC0B4; border-radius: 12px; background: rgba(255,255,255,.85); font-family: "Cinzel", serif; font-size: clamp(8px,1.8vw,10px); letter-spacing: 1.8px; color: var(--text-lt); cursor: pointer; transition: all .22s; text-transform: uppercase; font-weight: 600; }
   .toggle-btn.yes { background: var(--sage); border-color: var(--sage); color: #fff; box-shadow: 0 3px 12px rgba(122,158,122,.3); }
   .toggle-btn.no  { background: var(--blush); border-color: var(--blush); color: #fff; box-shadow: 0 3px 12px rgba(196,130,110,.25); }
 
@@ -82,7 +82,7 @@
   .extra-fields.show { max-height: 500px; opacity: 1; }
   .field-hint { font-size: 13px; color: var(--text-lt); font-style: italic; margin-top: 5px; }
 
-  .note { text-align: center; font-size: 14px; color: var(--blush-dk); font-style: italic; margin-bottom: 18px; }
+  .note { text-align: center; font-size: 14px; color: var(--blush-dk); font-style: italic; margin-bottom: 18px; font-weight: 500; }
   .submit-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--blush-dk), var(--blush)); border: none; border-radius: 50px; color: #fff; font-family: "Cinzel", serif; font-size: clamp(9px,2vw,11px); letter-spacing: 3px; text-transform: uppercase; cursor: pointer; transition: opacity .2s, transform .15s; box-shadow: 0 5px 24px rgba(180,100,80,.3); }
   .submit-btn:hover:not(:disabled) { opacity: .88; transform: translateY(-1px); }
   .submit-btn:active:not(:disabled) { transform: translateY(0); }
@@ -278,10 +278,6 @@
             <option value="3">3 people</option>
             <option value="4">4 people</option>
             <option value="5">5 people</option>
-            <option value="6">6 people</option>
-            <option value="7">7 people</option>
-            <option value="8">8 people</option>
-            <option value="9">9 people</option>
           </select>
         </div>
         <div class="field">
