@@ -14,7 +14,7 @@
     --brown:   #5E3C0E;
     --cream:   #FDF9F3;
     --text:    #5C3C12;
-    --text-lt: #9A7840;
+    --text-lt: #6B5218;
     --sage:    #6A8A68;
   }
   html { scroll-behavior: smooth; }
@@ -27,7 +27,7 @@
   .page { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; padding: 60px 24px 96px; }
 
   .bismillah { text-align: center; font-size: clamp(26px,6vw,36px); color: var(--gold); margin-bottom: 22px; font-style: italic; opacity: 0; animation: fadeUp .8s .1s forwards; }
-  .host-text { text-align: center; font-family: "Cinzel", serif; font-size: clamp(7.5px,1.7vw,9.5px); letter-spacing: 3px; color: var(--gold-md); text-transform: uppercase; line-height: 2; margin-bottom: 10px; opacity: 0; animation: fadeUp .8s .2s forwards; }
+  .host-text { text-align: center; font-family: "Cinzel", serif; font-size: clamp(11px,2vw,13px); letter-spacing: 3px; color: var(--gold-md); text-transform: uppercase; line-height: 2; margin-bottom: 10px; opacity: 0; animation: fadeUp .8s .2s forwards; }
   .names-wrap { text-align: center; opacity: 0; animation: fadeUp .8s .35s forwards; margin-bottom: 4px; }
   .name-script { font-family: "Great Vibes", cursive; font-size: clamp(36px,8.5vw,54px); color: var(--gold); line-height: 1.2; display: block; }
   .ampersand   { font-family: "Great Vibes", cursive; font-size: clamp(26px,5.5vw,34px); color: var(--gold-md); display: block; margin: -4px 0; }
@@ -38,10 +38,10 @@
   .d-num   { font-family: "Cinzel", serif; font-size: clamp(28px,6.5vw,40px); font-weight: 500; color: var(--brown); line-height: 1.05; }
   .date-vline { width: 1px; height: 58px; background: var(--gold-lt); margin: 0 18px; flex-shrink: 0; }
 
-  .time-text { text-align: center; font-family: "Cinzel", serif; font-size: clamp(7.5px,1.7vw,9.5px); letter-spacing: 3.5px; text-transform: uppercase; color: var(--text-lt); margin-bottom: 20px; opacity: 0; animation: fadeUp .8s .55s forwards; }
-  .venue { text-align: center; color: var(--text-lt); font-size: clamp(13px,3vw,15px); line-height: 1.9; margin-bottom: 8px; opacity: 0; animation: fadeUp .8s .6s forwards; }
+  .time-text { text-align: center; font-family: "Cinzel", serif; font-size: clamp(11px,2vw,13px); letter-spacing: 3.5px; text-transform: uppercase; color: var(--text-lt); margin-bottom: 20px; opacity: 0; animation: fadeUp .8s .55s forwards; }
+  .venue { text-align: center; color: var(--text-lt); font-size: clamp(15px,3vw,17px); line-height: 1.9; margin-bottom: 8px; opacity: 0; animation: fadeUp .8s .6s forwards; }
   .venue .v-name { display: block; font-family: "Cinzel", serif; font-size: clamp(9px,2vw,11px); font-weight: 600; letter-spacing: 2.5px; color: var(--brown); text-transform: uppercase; margin-bottom: 2px; }
-  .venue .v-full { display: block; font-family: "Cinzel", serif; font-size: clamp(8px,1.6vw,9.5px); letter-spacing: 2px; text-transform: uppercase; color: var(--gold-md); margin-bottom: 4px; }
+  .venue .v-full { display: block; font-family: "Cinzel", serif; font-size: clamp(10px,1.8vw,12px); letter-spacing: 2px; text-transform: uppercase; color: var(--gold-md); margin-bottom: 4px; }
   .reception { text-align: center; font-family: "Great Vibes", cursive; font-size: clamp(22px,5vw,28px); color: var(--gold); margin-bottom: 28px; opacity: 0; animation: fadeUp .8s .63s forwards; }
 
   .divider { display: flex; align-items: center; gap: 10px; margin: 0 0 28px; opacity: 0; animation: fadeUp .8s .66s forwards; }
@@ -49,8 +49,8 @@
   .div-diamond { width: 5px; height: 5px; background: var(--gold-lt); transform: rotate(45deg); flex-shrink: 0; }
 
   .card { background: rgba(255,253,248,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(196,164,74,.2); border-radius: 18px; padding: clamp(26px,6vw,40px) clamp(20px,6vw,36px); box-shadow: 0 6px 32px rgba(94,60,14,.08); opacity: 0; animation: fadeUp .9s .75s forwards; }
-  .card-title { font-family: "Cinzel", serif; font-size: clamp(10px,2vw,12px); letter-spacing: 4px; color: var(--gold); text-align: center; text-transform: uppercase; margin-bottom: 4px; }
-  .card-sub   { text-align: center; font-style: italic; font-size: 14px; color: var(--text-lt); margin-bottom: 26px; }
+  .card-title { font-family: "Cinzel", serif; font-size: clamp(12px,2.2vw,14px); letter-spacing: 4px; color: var(--gold); text-align: center; text-transform: uppercase; margin-bottom: 4px; }
+  .card-sub   { text-align: center; font-style: italic; font-size: 16px; color: var(--text-lt); margin-bottom: 26px; }
 
   .field { margin-bottom: 20px; }
   .field label { display: block; font-family: "Cinzel", serif; font-size: clamp(8px,1.6vw,9.5px); letter-spacing: 2.5px; color: var(--text-lt); text-transform: uppercase; margin-bottom: 8px; }
@@ -214,7 +214,7 @@
     <div class="date-vline"></div>
     <div class="date-col"><div class="d-label">2026</div></div>
   </div>
-  <p class="time-text">Two O'Clock in the Afternoon</p>
+  <p class="time-text">2:00 PM</p>
   <div class="venue">
     <span class="v-name">IAGD</span>
     <span class="v-full">Islamic Association of Greater Detroit</span>
@@ -258,10 +258,6 @@
             <option value="3">3 people</option>
             <option value="4">4 people</option>
             <option value="5">5 people</option>
-            <option value="6">6 people</option>
-            <option value="7">7 people</option>
-            <option value="8">8 people</option>
-            <option value="9">9 people</option>
           </select>
         </div>
         <div class="field">
@@ -303,7 +299,7 @@
     const count = document.getElementById('guestCount').value;
     const names = document.getElementById('guestNames').value.trim();
     const msg   = document.getElementById('message').value.trim();
-    const FORMSPREE_ID = "xojkokww";
+    const FORMSPREE_ID = "YOUR_NIKAH_FORM_ID";
     try {
       await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: 'POST',
